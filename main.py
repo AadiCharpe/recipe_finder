@@ -1,16 +1,9 @@
-from csv import reader
-from ast import literal_eval
+from fastapi import FastAPI
+import find
 
-ingredients = ['potato', 'chicken', 'bread', 'egg', 'parsley', 'salt', 'pepper', 'rosemary', 'thyme']
+app = FastAPI()
 
-with open('archive/Food Ingredients and Recipe Dataset with Image Name Mapping.csv') as f:
-    lines = list(reader(f))
-    for line in lines:
-        if line[0].isnumeric():
-            can_make = True
-            for required in literal_eval(line[2]):
-                if not any(ingredient in required.lower() for ingredient in ingredients):
-                    can_make = False
-                    break
-            if can_make:
-                print(line)
+@app.get("/recipes/")
+def get_recipes(ingredients: str):
+    ingredient_list = [item.strip() for item in ingredients.split(',')]
+    return find.find_recipes(ingredient_list)
