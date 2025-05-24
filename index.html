@@ -8,13 +8,14 @@
     </head>
     <body>
         <h1 style="text-align: center;">Recipe Finder</h1>
-        <div><textarea></textarea></div>
+        <div><textarea id="ingredients" readonly></textarea></div>
         <div>
             <label>Add Ingredient:</label>
-            <input type="text" id="ingredient">
-            <button>Add</button>
-            <br>
+            <input type="text" id="ingredient" placeholder="Ingredient Name">
+            <button onclick="add()">Add</button>
+            <button onclick="remove()">Remove Last</button>
         </div>
-        <div><button>Remove Last</button></div>
+        <div><button>Find Recipes</button></div>
+        <script src="script.js"></script>
     </body>
 </html>
