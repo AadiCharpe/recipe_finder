@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1 style="text-align: center;">Recipe Finder</h1>
+        <h2 style="text-align: center;">Your Ingredients:</h2>
         <div><textarea id="ingredients" readonly></textarea></div>
         <div>
             <label>Add Ingredient:</label>
@@ -15,7 +16,8 @@
             <button onclick="add()">Add</button>
             <button onclick="remove()">Remove Last</button>
         </div>
-        <div><button>Find Recipes</button></div>
+        <div><button onclick="find()">Find Recipes</button></div>
+        <div id="recipes"></div>
         <script src="script.js"></script>
     </body>
 </html>
